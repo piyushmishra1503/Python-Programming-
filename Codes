@@ -1,0 +1,156 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+
+class SinglyLnkedLIst:
+    def __init__(self):
+        self.head=None
+    
+    def insert(self):
+        n=Node(int(input("Enter Data : ")))
+        n.next=self.head
+        self.head=n
+    
+    def DisplayNode(self):
+        t=self.head
+        if t==None:
+            print("No node available")
+        else:
+            while t!=None:
+                print(t.data,end=" ")
+                t=t.next
+            print("\n")
+    
+    def InsertAtEnd(self):
+        if self.head==None:
+            self.head=Node(int(input("Enter Data : ")))
+        else:
+            t=self.head
+            while t.next!=None:
+                t=t.next
+            t.next=Node(int(input("Enter Data : ")))
+    
+    def delete(self):
+        if self.head==None:
+            print("No Node")
+        else:
+            temp=self.head
+            self.head=self.head.next
+            temp=None
+    
+    def DeleteLastNode(self):
+        if self.head==None:
+            print("No Node")
+        elif self.head.next==None:
+            self.DeleteFirstNode()
+        else:
+            t=self.head
+            while t.next.next!=None:
+                t=t.next
+            t.next=None
+    
+    def CountNode(self):
+        t=self.head
+        if self.head==None:
+            print("No Node")
+        else:
+            count=0
+            while t!=None:
+                count+=1
+                t=t.next
+            print(f"Count is {count}")
+
+    def Add(self):
+        t=self.head
+        sum=0
+        if self.head==None:
+            print("No Node")
+        else:
+            while t!=None:
+                sum+=t.data
+                t=t.next
+            print(f"Sum is {sum}")
+    
+    def Min(self):
+        t=self.head
+        min=self.head.data
+
+        if self.head==None:
+            print("No Node")
+        else:
+            while t!=None:
+                if t.data<min:
+                    min=t.data
+                t=t.next
+            print(f"Minimum value is {min}")
+
+    def Max(self):
+        t=self.head
+        max=self.head.data
+
+        if self.head==None:
+            print("No Node")
+        else:
+            while t!=None:
+                if t.data>max:
+                    max=t.data
+                t=t.next
+            print(f"Maximum value is {max}")
+    def SeachNOde(self):
+        t=self.head
+        found=0
+        if self.head==None:
+            print("No Node")
+        else:
+            key=int(input("Search the data: "))
+            while t!=None:
+                if t.data==key:
+                    print(f"Element {key} found")
+                    found=1
+                t=t.next
+            if found==0:
+                print(f"Element {key} not found")
+
+    def SumOfEven(self):
+        t=self.head
+        sum=0
+        if self.head==None:
+            print("No NOde")
+        else:
+            while t!=None:
+                if t.data%2==0:
+                    sum+=t.data
+                t=t.next
+            print(f"Sum of even no is {sum}")
+    def SumOfOdd(self):
+        t=self.head
+        sum=0
+        if self.head==None:
+            print("No Node")
+        else:
+            while t!=None:
+                if t.data%2!=0:
+                    sum+=t.data
+                t=t.next
+            print(f"Sum of odd no is {sum}")
+    
+s=SinglyLnkedLIst()
+s.insert()
+s.insert()
+s.insert()
+s.insert()
+s.InsertAtEnd()
+s.InsertAtEnd()
+s.DisplayNode()
+s.CountNode()
+s.Add()
+s.Min()
+s.Max()
+s.SeachNOde()
+s.SumOfEven()
+s.SumOfOdd()
+print("\nDisplay after Delete")
+s.delete()
+s.DeleteLastNode()
+s.DisplayNode()
